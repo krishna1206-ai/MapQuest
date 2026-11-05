@@ -1,15 +1,24 @@
 {
   "expo": {
-    "name": "mapquest",
+    "name": "MapQuest",
     "slug": "mapquest",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mapquest.mobileapp",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "MapQuest uses your location to show your position on the map, find places near you, and give directions."
+      }
     },
     "android": {
+      "package": "com.mapquest.mobileapp",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ],
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/android-icon-foreground.png",
@@ -19,7 +28,20 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "single"
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "MapQuest uses your location to show your position on the map, find places near you, and give directions."
+        }
+      ],
+      "expo-font",
+      "expo-router"
+    ],
+    "scheme": "mapquest"
   }
 }
